@@ -61,9 +61,27 @@ public class HashCensus {
         return result;
     }
 
+      public static void getSameFirstNameString(Map<String, String> map, String lastName) {
+       
+        //Create an iterator from the result of entrySet().
+        Iterator<Map.Entry <String, String>> iterator = map.entrySet().iterator();
+        //Traverse the interator
+        while(iterator.hasNext()){
+            //Access each result set in the iterator
+            Map.Entry <String, String> pair = iterator.next();
+            String value = pair.getValue();
+            //Compare the value of the result to the parameter passed in.
+            //If there is a match increment result. Return result.
+            if(value.equals(lastName)){
+                 System.out.print( pair.getKey() + " " + pair.getValue() + " " + "\n");
+            }
+        }
+    }
+
     public static void main(String[] args) {
-       System.out.println(getSameFirstNameCount(createMap(),"Silverfrond"));
-        System.out.println(getSameLastNameCount(createMap(),"Ara"));
+       //System.out.println(getSameFirstNameCount(createMap(),"Silverfrond"));
+        //System.out.println(getSameLastNameCount(createMap(),"Ara"));
+          getSameFirstNameString(createMap(),"Diamonddew");
 
     }
 }
