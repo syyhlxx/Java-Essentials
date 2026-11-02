@@ -21,18 +21,34 @@ public class HashRich {
         //Set up a hash map of key, value pairs.
         Map<String, WarriorInfo> warriors = new HashMap<>();
         warriors.put("Glorfindel", new WarriorInfo(1000, 75, 100));
-        warriors.put("Celebrimbor", new WarriorInfo(5000, 500, 50));
+        warriors.put("Celebrimbor", new WarriorInfo(5000, 50, 50));
         warriors.put("Eärendil ", new WarriorInfo(1000, 100, 10));
-        warriors.put("Fëanor ", new WarriorInfo(1867, 12000, 0));
-        warriors.put("Idril", new WarriorInfo(3204, 13000, 0));
+        warriors.put("Fëanor ", new WarriorInfo(1867, 120, 0));
+        warriors.put("Idril", new WarriorInfo(3204, 137, 0));
         warriors.put("Elrohir", new WarriorInfo(7802, 3000, 14001));
-        warriors.put("Elladanz", new WarriorInfo(1000, 1000, 89));
-        warriors.put("Aredhel", new WarriorInfo(1000, 500, 778));
+        warriors.put("Elladanz", new WarriorInfo(1000, 107, 89));
+        warriors.put("Aredhel", new WarriorInfo(1000, 50, 778));
         return warriors;
     }
     public static void printMap(Map<String, WarriorInfo> map) {
+        System.out.println("\n");
+        System.out.println("\n");
+
+         System.out.printf("+----------------+--------+----------+--------+%n");
+         System.out.printf("| %-14s | %6s | %8s | %6s|%n",
+            "Warrior", "Age", "Strength", "Enemies");
+         System.out.printf("+----------------+--------+----------+--------+%n");
+
+    for (Map.Entry<String, WarriorInfo> entry : map.entrySet()) {
+        WarriorInfo info = entry.getValue();
+        System.out.printf("| %-14s | %6d | %8d | %6d |%n",
+                entry.getKey().trim(), info.age, info.strength, info.felledEnemies);
+    }
+
+    System.out.printf("+----------------+--------+----------+--------+%n");
+    System.out.println("\n");
         //Create and iterator from the map.
-        Iterator<Map.Entry <String, WarriorInfo>> iterator = map.entrySet().iterator();
+        /*Iterator<Map.Entry <String, WarriorInfo>> iterator = map.entrySet().iterator();
         while(iterator.hasNext()){
             //Traverse the iterator and print the value
             // of the key,value pair.
@@ -40,7 +56,7 @@ public class HashRich {
             System.out.print(pair.getKey() + " of "+ pair.getValue().age + 
             " " +"ages" +" slew " + pair.getValue().felledEnemies+ 
             " enemies in battle..." + "\n");
-        }
+        }*/
     }
     public static void removeItemFromMap(Map<String, WarriorInfo> map) {
         //Create and iterator from the map.
